@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper index">
+        <h1>首頁</h1>
+        <section class="section01">
+            <h2>slogan</h2>
+            <div class="area">
+                <div class="btn">按鈕1</div>
+            </div>
+        </section>
+    </div>
+    <section class="container-another">
+        <div class="button">按鈕2</div>
+    </section>
+
+    <section class="container-full">
+        <div class="button">按鈕3</div>
+        <div class="btn_common">按鈕4</div>
+        <div class="btn_large">按鈕5</div>
+        <div class="btnOutline-default">按鈕6</div>
+        <div class="box mv01 pushleft_19 pushtop_20"></div>
+        <div class="box mv02"></div>
+    </section>
+
+
+    <script>
+        var tl = gsap.timeline();
+
+        tl.to('.mv01', {
+            x: 100,
+        }).to('.mv01', {
+            y: 300,
+            ease : "elastic.out(1, 0.3)"
+        }).to('.mv01', {
+            rotation: 360,
+            // repeat: -1,
+            ease: "none"
+        }).to('.mv02', {
+            backgroundColor: '#f20',
+            delay: -0.4,
+            x: 300
+        })
+
+
+        gsap.to('.mv01', {
+            x: 400,
+            y: 100,
+            duration: 0.3,
+            with: 400,
+            backgroundColor: '#f20',
+            scale: 2,
+            rotationY:360,
+        })
+    </script>
+</body>
+</html>
