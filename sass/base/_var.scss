@@ -1,0 +1,17 @@
+/* CSS註解 */
+// scss註解
+$fontSize: 16px; // number
+$color: #fff; //color
+$fontFamily: Verdana, Geneva, Tahoma, sans-serif; // string
+$margin: 10px 10px 20px 20px; // list
+$Mapcolor:(
+    "key": "val",
+    "blue": #333,
+    "pink": pink
+);// map
+$block: null; //null 屬性刪除, intial預設
+
+
+// 斷點
+$small: 576px;
+$medium: 992px;

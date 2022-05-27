@@ -1,0 +1,30 @@
+
+// 首頁
+.index{
+    .section01{
+        width: 100%;
+        background-color: #bbb;
+        h2{
+            font-size: 34px;
+            color: #333;
+        }
+        .area{
+            width: 80%;
+            background-color: #abc;
+            margin: 0 auto;
+            
+        }
+    }
+}
+
+.container-another{
+    @include layout(1200);
+    height: 100px;
+    background-color: chocolate;
+}
+
+.container-full{
+    @include layout(100);
+    height: 300px;
+    background-color: cadetblue;
+}

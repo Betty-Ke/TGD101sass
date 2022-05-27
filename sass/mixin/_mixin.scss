@@ -1,0 +1,109 @@
+
+// ==========版面控制=========
+// 如何使用: @include layout(數值) 判斷版型 100 滿版
+// 數值 1200
+@mixin layout($layout){
+    @if $layout == 100{
+        width: 100%;
+    }@else{
+        width: $layout + px;
+        margin: auto;
+    }
+}
+
+
+
+// mixin 函式 == js function
+
+// 函式 沒有帶值
+@mixin fontcenter{
+    // 屬性
+    text-align: center;
+    font-size: 14px;
+    color: #000;
+}
+
+// 初始值null => 刪除屬性
+@mixin margin_center($num:null) {
+    margin: $num auto;
+    // width: 200px;
+}
+
+//按鈕
+// @include btn(classname, 大小, 背景色, 圓角);
+@mixin btn($class, $w, $bgc, $borderRadius:null){
+    .#{$class}{
+        padding: $w $w*3;
+        text-align: center;
+        border-radius: $borderRadius;
+        background-color: $bgc;
+        color: invert($bgc);
+        cursor: pointer;
+        transition: all .2s ease;
+
+        &:hover{
+            background-color: lighten($bgc, 20);
+            color: invert($bgc);
+            transform: scale(1.2);
+            transform: rotate(3deg)
+        }
+    }
+}
+
+//按鈕練習
+@mixin btn_outline($class, $w, $borderRadius, $bgc) {
+    .btnOutline-#{$class}{
+        padding: $w $w*2;
+        text-align: center;
+        border-radius: $borderRadius;
+        color: $bgc;
+        border: 1px solid $bgc;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover{
+            background-color: $bgc;
+            color: white;
+            border: initial;
+        }
+    }
+    
+}
+
+
+//RWD
+// 共用的手機斷點
+@mixin mobile(){
+    @media all and (max-width: $small){
+        // 576px
+        @content;
+    }
+}
+
+// 共用的平板斷點
+@mixin t(){
+    @media all and (max-width: $medium){
+        // 996px
+        @content;
+    }
+}
+
+// 客製化斷點
+@mixin c($breakpoint){
+    @media all and (max-width: $breakpoint){
+        // 996px
+        @content;
+    }
+}
+
+
+// 推元件使用
+// @include push(推多少, 方向)
+@mixin push($num, $dir){
+    @for $i from 1 through $num{
+        .push#{$dir}_#{$i}{
+            position: relative;
+            #{$dir}: $i * 1px;
+        }
+    }
+}

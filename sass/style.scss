@@ -1,0 +1,273 @@
+@import 'base/var';
+@import 'base/reset';
+@import 'base/font';
+@import 'mixin/mixin';
+// @import '../node_modules/bootstrap/scss/bootstrap';
+@import 'component/btn';
+@import 'page/index';
+@import 'page/about';
+
+body{
+    font-size: $fontSize;
+    font-weight: 400;
+    margin: $margin;
+    padding: $block;
+    color: $color;
+    font-family: $fontFamily;
+    background-color: map-get($Mapcolor, "pink");
+}
+
+$a: 10px;
+$a: 20px !default; //改變層級
+
+.wrapper{
+    padding: $a;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+// class宣告
+// #{變數}
+$class: box;
+$file: a1;
+$attr: margin;
+
+.#{$class}{
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    background-image: url('img/#{$file}.jpg');
+    #{$attr}: 10px;
+}
+
+
+//nesting
+/* section h2{
+    font-size: 34px;
+    color: #333;
+} */
+
+
+// 運算 注意單位
+.cal{
+    width: 10px + 10px; //單位相同
+    height: 10px - 5;
+    margin: 10 * 5 + px; // 相乘 10px * 5
+    min-height: (50px / 20); // 除法()
+    font: 100px / 10px; // font-size / line-height
+}
+
+// 運算函式
+.num{
+    width: floor(100.5px); // 無條件捨去
+    height: ceil(100.5px); // 無條件進位
+    margin: round(100.4px); // 四捨五入
+}
+
+// 顏色函式
+.color{
+    color: lighten(#000, 10); // 顏色變淺 (color, 0~100)
+    background-color: darken(pink, 60); // 顏色變深 (color, 0~100)
+}
+
+$btnColor: red;
+
+.button{
+    text-align: center;
+    padding: 10px 20px;
+    color: $btnColor;
+    &:hover{
+        color: lighten($btnColor, 10);
+    }
+}
+
+// 判斷式 @if @else @else if
+$a: false;
+
+@if $a{
+    .box{
+        width: 100px;
+        content: 'true';
+    }
+}@else{
+    .box{
+        width: 50px;
+        content: 'false';
+    }
+}
+.font{
+    @if $color == black{
+        color: #000;
+    }@else if $color == yellow{
+        color: #fff01d;
+    }@else{
+        color:#ccc;
+    }
+}
+
+$layout: full;
+.container{
+    @if $layout == 'full'{
+        width: 100%;
+    }@else if $layout == 'fixed'{
+        width: 1200px;
+        margin: 0;
+    }
+}
+
+
+
+// 引用
+.text{
+    @include fontcenter;
+    @include margin_center;
+}
+
+h1{
+    @include fontcenter;
+    width: 100px;    
+}
+
+// 預設值 $w, $h為區域變數
+@mixin rect($w, $h:$w){
+    width: $w;
+    min-height: $h;
+    @include margin-center();
+}
+
+.box{
+    @include rect(100px)
+}
+
+
+@include btn('btn_common', 5px, yellow, 5px);
+@include btn('btn_large', 15px, maroon, 3px);
+@include btn_outline('default', 0.4rem, 2px, gray);
+
+
+.wrapper{
+    @include layout(1200);
+
+    @include t(){
+        @include layout(800);
+    }
+
+    @include mobile(){
+        @include layout(100);
+    }
+}
+
+@include mobile(){
+    .box{
+        @include rect(300px);
+        background-color: #333;
+    }
+}
+// 跟上面寫法相容
+// .box{
+//     @include mobile(){
+//         @include rect(300px);
+//         background-color: #333;
+//     }
+// }
+
+@include c(1024px){
+    .fontH1{
+        font-size: 50px;
+    }
+    .fontH2{
+        font-size: 40px;
+    }
+}
+
+// for迴圈 起始值1結束值10
+// @for $i from 10 through 1{
+//     .a#{$i}{
+//         margin-left: $i * 1px;
+//     }
+// }
+
+.box{
+    @include rect(100px, 100px);
+    background-color: green;
+}
+
+
+
+// @include push(20, left);
+// @include push(100, top);
+
+//each
+$list: slider_01 slider_02 slider_03;
+@each $var in $list{
+    .img_#{$var}{
+        background-image: url('images/#{$var}.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: cover;
+    }
+}
+
+
+//@each map
+$colorEach:(
+    "key": val,
+    "basic": #333,
+    "light": #eee,
+    "dark": #000
+);
+
+@each $k, $v in $colorEach{
+    .#{$k}_color {
+        background-color: $v;
+    }
+}
+
+$titleSize:(
+    "h1": 40px,
+    "h2": 30px,
+    ".small": 12px
+);
+
+@each $k, $v in $titleSize{
+    #{$k}{
+        font-size: $v;
+    }
+}
+
+
+$breakpoint:(
+    'm': 576px,
+    't': 996px,
+    'lx': 1920px
+);
+
+@mixin rwd($res) {
+    
+    @each $v, $num in $breakpoint {
+    
+        @if $res == $v{
+            @media all and (max-width: $num){
+                @content;
+            }
+        }
+    }
+}
+
+@include rwd(m){
+    .aa{
+        content: '手機';
+    }
+}
+
+@include rwd(t){
+    .aa{
+        content: '平板';
+    }
+}
+
+@include rwd(lx){
+    .aa{
+        content: '超大螢幕';
+    }
+}

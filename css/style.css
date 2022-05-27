@@ -1,0 +1,398 @@
+@charset "UTF-8";
+/* CSS註解 */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1 {
+  font-size: 70px;
+}
+
+h2 {
+  font-size: 58px;
+}
+
+h3 {
+  font-size: 45px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+.btn {
+  padding: 10px;
+  text-align: center;
+  background-color: darksalmon;
+  color: brown;
+  border-radius: 10px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  background-color: darkslateblue;
+}
+
+.btn--dark {
+  background-color: gray;
+}
+
+.btn--dark:hover {
+  background-color: #ccc;
+}
+
+.index .section01 {
+  width: 100%;
+  background-color: #bbb;
+}
+
+.index .section01 h2 {
+  font-size: 34px;
+  color: #333;
+}
+
+.index .section01 .area {
+  width: 80%;
+  background-color: #abc;
+  margin: 0 auto;
+}
+
+.container-another {
+  width: 1200px;
+  margin: auto;
+  height: 100px;
+  background-color: chocolate;
+}
+
+.container-full {
+  width: 100%;
+  height: 300px;
+  background-color: cadetblue;
+}
+
+.about section {
+  width: 100%;
+}
+
+.about section h2 {
+  font-size: 40px;
+  color: #444;
+}
+
+body {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 10px 20px 20px;
+  color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: pink;
+}
+
+.wrapper {
+  padding: 10px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+  background-image: url("img/a1.jpg");
+  margin: 10px;
+}
+
+/* section h2{
+    font-size: 34px;
+    color: #333;
+} */
+.cal {
+  width: 20px;
+  height: 5px;
+  margin: 50px;
+  min-height: 2.5px;
+  font: 100px / 10px;
+}
+
+.num {
+  width: 100px;
+  height: 101px;
+  margin: 100px;
+}
+
+.color {
+  color: #1a1a1a;
+  background-color: #8d0019;
+}
+
+.button {
+  text-align: center;
+  padding: 10px 20px;
+  color: red;
+}
+
+.button:hover {
+  color: #ff3333;
+}
+
+.box {
+  width: 50px;
+  content: 'false';
+}
+
+.font {
+  color: #ccc;
+}
+
+.container {
+  width: 100%;
+}
+
+.text {
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+  width: 100px;
+}
+
+.box {
+  width: 100px;
+  min-height: 100px;
+  margin: auto;
+}
+
+.btn_common {
+  padding: 5px 15px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: yellow;
+  color: blue;
+  cursor: pointer;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.btn_common:hover {
+  background-color: #ffff66;
+  color: blue;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transform: rotate(3deg);
+          transform: rotate(3deg);
+}
+
+.btn_large {
+  padding: 15px 45px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: maroon;
+  color: #7fffff;
+  cursor: pointer;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.btn_large:hover {
+  background-color: #e60000;
+  color: #7fffff;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transform: rotate(3deg);
+          transform: rotate(3deg);
+}
+
+.btnOutline-default {
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+  border-radius: 2px;
+  color: gray;
+  border: 1px solid gray;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.btnOutline-default:hover {
+  background-color: gray;
+  color: white;
+  border: initial;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: auto;
+}
+
+@media all and (max-width: 992px) {
+  .wrapper {
+    width: 800px;
+    margin: auto;
+  }
+}
+
+@media all and (max-width: 576px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 576px) {
+  .box {
+    width: 300px;
+    min-height: 300px;
+    margin: auto;
+    background-color: #333;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  .fontH1 {
+    font-size: 50px;
+  }
+  .fontH2 {
+    font-size: 40px;
+  }
+}
+
+.box {
+  width: 100px;
+  min-height: 100px;
+  margin: auto;
+  background-color: green;
+}
+
+.img_slider_01 {
+  background-image: url("images/slider_01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.img_slider_02 {
+  background-image: url("images/slider_02.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.img_slider_03 {
+  background-image: url("images/slider_03.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.key_color {
+  background-color: val;
+}
+
+.basic_color {
+  background-color: #333;
+}
+
+.light_color {
+  background-color: #eee;
+}
+
+.dark_color {
+  background-color: #000;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.small {
+  font-size: 12px;
+}
+
+@media all and (max-width: 576px) {
+  .aa {
+    content: '手機';
+  }
+}
+
+@media all and (max-width: 996px) {
+  .aa {
+    content: '平板';
+  }
+}
+
+@media all and (max-width: 1920px) {
+  .aa {
+    content: '超大螢幕';
+  }
+}
+/*# sourceMappingURL=style.css.map */
